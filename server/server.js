@@ -40,7 +40,7 @@ console.log("main system ok")
 test = () => {
     console.log('test')
     if(!octopusLower.readable){
-        octopusLower = net.connect(config.octopus.lower, () => {
+        octopusLower = net.connect(config.nrcs.lower, () => {
             __logger.info("client connected Octopus lower");
             clearInterval(afterCutOff)
             // octopusLower.write(mostalk.heartbeat);
@@ -64,13 +64,13 @@ test = () => {
 
 
 
-let octopusLower = net.connect(config.octopus.lower, () => {
+let octopusLower = net.connect(config.nrcs.lower, () => {
     __logger.info("client connected Octopus lower");
 
     // octopusLower.write(mostalk.heartbeat);
 });
 
-let octopusUpper = net.connect(config.octopus.upper, () => {
+let octopusUpper = net.connect(config.nrcs.upper, () => {
     __logger.info("client connected Octopus upper");
     // octopusUpper.write(mostalk.heartbeat);
 
