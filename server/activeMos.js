@@ -6,8 +6,8 @@ getActive = () => {
     actives = {};
     fs.readdir("./public/rundowns", function (err, files) {
         if(err){ 
-            __logger.info("kunne ikke læse rundowns")
-            return console.log("kunne ikke læse rundowns")
+            __logger.info("could not read rundowns")
+         
             
         };
         let counter = 0;
