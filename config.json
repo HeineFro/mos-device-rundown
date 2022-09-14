@@ -1,0 +1,22 @@
+{
+"setup": {
+	"heartbeatinterval": 30000
+},
+    "host":{
+        "ip" : "10.17.2.112",
+        "portPublic" : 6081,
+        "lowerPort" : 30540,
+        "upperPort" : 30541
+    },
+
+"octopus":{
+    "lower" : {
+        "port": 30940,
+        "host": "10.17.1.46"
+    },
+    "upper":{
+        "port": 30941,
+        "host": "10.17.1.46"
+    }
+}     
+}
