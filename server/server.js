@@ -252,9 +252,9 @@ serverMosLower.listen(config.host.lowerPort, config.host.ip, () => {
 });
 
 let post;
-let date = new Date()
-process.on('uncaughtException', function (err) {
 
+process.on('uncaughtException', function (err) {
+let date = new Date()
     __logger.error("uncaught exception" + err)
     post += date + '<br>' + err + '<br>'
     // console.log(err);
