@@ -1,7 +1,8 @@
 # mos-device-rundown
 MOS Device - Runddown
 Communicates with a NRCS via mosprotocol
-I could not have made this without a lot of inspiration from https://github.com/nrkno/sofie-mos-connection
+
+This is made with a lot of inspiration from https://github.com/nrkno/sofie-mos-connection
 
 
 Mos device gets active rundowns and saves them as json, and then publish them on http://host:port/mosactive so they can be downloaded.
