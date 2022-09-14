@@ -3,20 +3,20 @@
 	"heartbeatinterval": 30000
 },
     "host":{
-        "ip" : "10.17.2.112",
-        "portPublic" : 6081,
-        "lowerPort" : 30540,
-        "upperPort" : 30541
+        "ip" : "127.0.0.1",
+        "portPublic" : 0000,
+        "lowerPort" : 00000,
+        "upperPort" : 00000
     },
 
-"octopus":{
+"nrcs":{
     "lower" : {
-        "port": 30940,
-        "host": "10.17.1.46"
+        "port": 00000,
+        "host": "0.0.0.0"
     },
     "upper":{
-        "port": 30941,
-        "host": "10.17.1.46"
+        "port": 00000,
+        "host": "0.0.0.0"
     }
 }     
 }
