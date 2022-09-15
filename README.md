@@ -4,14 +4,14 @@ Communicates with a NRCS via mosprotocol
 
 This is made with a lot of inspiration from https://github.com/nrkno/sofie-mos-connection
 
-
 Mos device gets active rundowns and saves them as json, and then publish them on http://host:port/mosactive so they can be downloaded.
 The downloaded rundowns are saved by there rundown ID - To download, get ID from the mosactive url, and go for http://host:port/rundowns/<id>.json
 
 oh by the way, the xml from the NRCS is converted to json
 
-This device is ment to work with a middelware(cg-com-rundown)that filters the rundown and extracts graphic elements to by played out on CasparCG
-To add graphic elements in the NRCS´s rundowns a plugins needs to run inside, but thats other story
+This device is ment to work with a middelware(https://github.com/HeineFro/mos-casparcg-rundown
+)that filters the rundown and extracts graphic elements to by played out on CasparCG
+To add graphic elements in the NRCS´s rundowns a plugins is needed, but thats other story
 
 This is only tested with Octopus.
 
