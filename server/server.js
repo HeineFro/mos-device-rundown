@@ -51,7 +51,7 @@ test = () => {
     }
 
     if(!octopusUpper.readable){
-        octopusUpper = net.connect(config.octopus.upper, () => {
+        octopusUpper = net.connect(config.nrcs.upper, () => {
             __logger.info("client connected Octopus upper");
             // octopusUpper.write(mostalk.heartbeat);
         
@@ -231,10 +231,11 @@ let serverMosUpper = net.createServer(connectionMosUpper => {
 
 
     connectionMosUpper.on('error', function (err) {
-
+        let date = new Date()
         __logger.error('Socket error: ' + err );
         post += date + '<br>' + err + '<br>'
-       // __logger.error(new Error().stack);
+       
+        __logger.error(new Error().stack);
     });
 
 
@@ -258,14 +259,15 @@ let date = new Date()
     __logger.error("uncaught exception" + err)
     post += date + '<br>' + err + '<br>'
     // console.log(err);
-    app.get('/error', function (req, res) {
 
-        res.send(post);
-
-    });
 
 });
 
+app.get('/error', function (req, res) {
+
+    res.send(post);
+
+});
 app.post('/test', function (req, res) {
     console.log("test request")
     console.log(req.body.system)
