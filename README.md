@@ -5,7 +5,7 @@ Communicates with a NRCS via mosprotocol
 This is made with a lot of inspiration from https://github.com/nrkno/sofie-mos-connection
 
 Mos device gets active rundowns and saves them as json, and then publish them on http://host:port/mosactive so they can be downloaded.
-The downloaded rundowns are saved by there rundown ID - To download, get ID from the mosactive url, and go for http://host:port/rundowns/<id>.json
+The downloaded rundowns are saved by there rundown ID - To download, get ID from the mosactive url, and go for http://host:port/rundowns/(roID).json
 
 oh by the way, the xml from the NRCS is converted to json
 
