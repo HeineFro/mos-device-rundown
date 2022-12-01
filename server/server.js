@@ -3,9 +3,9 @@ const express = require('express');
 
 module.exports.app = app = require('express')();
 const cors = require('cors');
-const log = require('./log'); //loader log der har alt til 
+const log = require('./log'); 
 const xmlParser = require("xml2json");
-//events emitter mellem moduler
+
 const interCom = require('./interCom');
 const mostalk = require('./mosMessages');
 const xml = require('./xmlparser');
@@ -15,19 +15,19 @@ const net = require("net"); // import net
 let iconv = require('iconv-lite');
 
 
-app.use(cors()); //tillader cross-origin etc.
+app.use(cors()); 
 app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json()); //.json())
-//starter server op - plugin
+
 var server = app.listen(config.host.portPublic, config.host.ip, function () {
     var host = server.address().address
     var port = server.address().port
     __logger.info("MOS Device running", host, port);
 })
 
-app.use(express.static('public')); //public er rod folderen for GUI
+app.use(express.static('public')); 
 
 app.get('/', function (req, res) {
     res.send('http://' + config.host.ip + ':' + config.host.portPublic + '/mosactive');
@@ -77,14 +77,14 @@ let octopusUpper = net.connect(config.nrcs.upper, () => {
 });
 
 octopusLower.on('data', data => {
-    //console.log(data);
+   
     console.log("besked fra octopus lower på client");
     console.log(data.toString());
 
 })
 
 octopusUpper.on('data', data => {
-    //console.log(data);
+    
     console.log("besked fra octopus upper på client");
     console.log(data.toString());
 })
@@ -129,9 +129,7 @@ setInterval(heart, config.setup.heartbeatinterval);
 
 let serverMosLower = net.createServer(connectionMosLower => {
     setInterval(function () {
-        //respons = xml.respons
-        //console.log(respons)
-        
+            
     
             connectionMosLower.write(mostalk.heartbeat);
             console.log('heartbeat lower respons - mosdevice server');
@@ -147,14 +145,14 @@ let serverMosLower = net.createServer(connectionMosLower => {
     connectionMosLower.on("close", data => {
 
         __logger.info("Octopus Lower closed connection on mosdevice");
-        //reconnect upper
+       
     });
 
     connectionMosLower.on('error', function (err) {
             
         __logger.error('mosdevice lower error: ' + err );
         post += date + '<br>' + err + '<br>'
-        //__logger.error(new Error().stack);
+       
     });
 
 
@@ -188,7 +186,7 @@ let serverMosUpper = net.createServer(connectionMosUpper => {
     });
 
     connectionMosUpper.on("data", data => {
-        //console.log(data.toString());
+      
    
         console.log("data fra octopus til mosdevice upper")
         sendAck = () => {
@@ -258,7 +256,7 @@ process.on('uncaughtException', function (err) {
 let date = new Date()
     __logger.error("uncaught exception" + err)
     post += date + '<br>' + err + '<br>'
-    // console.log(err);
+   
 
 
 });
@@ -276,6 +274,6 @@ app.post('/test', function (req, res) {
     }
 
 
-    // res.send(res.body)
+   
 })
 
